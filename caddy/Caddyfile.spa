@@ -1,0 +1,9 @@
+# Single-page app (Vite/React/Vue): unknown paths fall back to index.html
+app.example.com {
+	root * /var/www/app
+	encode zstd gzip
+	try_files {path} /index.html
+	file_server
+	header /assets/* Cache-Control "public, max-age=31536000, immutable"
+	header /index.html Cache-Control "no-cache"
+}

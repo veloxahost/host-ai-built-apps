@@ -1,0 +1,6 @@
+app.example.com {
+	root * /var/www/app
+	encode zstd gzip
+	file_server
+	header /assets/* Cache-Control "public, max-age=31536000, immutable"
+}
