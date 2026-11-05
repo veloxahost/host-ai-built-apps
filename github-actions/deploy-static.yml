@@ -1,0 +1,36 @@
+# Copy to .github/workflows/deploy.yml in your app repo.
+# Secrets: DEPLOY_HOST, DEPLOY_USER, DEPLOY_SSH_KEY (private key whose public key is in the server's authorized_keys)
+name: Deploy to server
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Build (only if package.json exists)
+        run: |
+          if [ -f package.json ]; then
+            npm ci
+            npm run build
+            echo "OUT=dist" >> "$GITHUB_ENV"
+          else
+            echo "OUT=." >> "$GITHUB_ENV"
+          fi
+
+      - name: Upload over SSH
+        env:
+          SSH_KEY: ${{ secrets.DEPLOY_SSH_KEY }}
+          HOST: ${{ secrets.DEPLOY_HOST }}
+          USER: ${{ secrets.DEPLOY_USER }}
+          PORT: ${{ secrets.DEPLOY_PORT || '22' }}
+        run: |
+          install -m 600 /dev/null ~/.ssh_key && echo "$SSH_KEY" > ~/.ssh_key
+          rsync -az --delete --exclude '.git' --exclude '.github' \
+            -e "ssh -i ~/.ssh_key -p $PORT -o StrictHostKeyChecking=accept-new" \
+            "$OUT"/ "$USER@$HOST:/var/www/app/"
