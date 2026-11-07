@@ -57,9 +57,10 @@ Step-by-step guides:
 - [Host a Lovable app on your own domain](https://veloxahost.com/veloxa-build/guides/host-a-lovable-app-on-your-own-domain?utm_source=github&utm_medium=referral&utm_campaign=host-ai-built-apps)
 - [Export a Bolt project and host it](https://veloxahost.com/veloxa-build/guides/export-a-bolt-project-and-host-it?utm_source=github&utm_medium=referral&utm_campaign=host-ai-built-apps)
 
-## Read the write-up
+## Read more
 
-**How to host a Lovable, Bolt or v0 app on your own domain**: [dev.to](https://dev.to/veloxadev/how-to-host-a-lovable-bolt-or-v0-app-on-your-own-domain-configs-included-14jk) · [Medium](https://medium.com/@veloxahost26/how-to-host-a-lovable-bolt-or-v0-app-on-your-own-domain-configs-included-ed7f0816fbcb)
+- [Host a Lovable app on your own domain, step by step](https://veloxahost.com/veloxa-build/guides/host-a-lovable-app-on-your-own-domain?utm_source=github&utm_medium=referral&utm_campaign=host-ai-built-apps)
+- [Where to host an AI-built website](https://veloxahost.com/veloxa-build/guides/where-to-host-an-ai-built-website?utm_source=github&utm_medium=referral&utm_campaign=host-ai-built-apps)
 
 ## License
 
